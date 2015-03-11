@@ -235,6 +235,12 @@ static int ct_seq_show(struct seq_file *s, void *v)
 
 	ct_show_delta_time(s, ct);
 
+#if defined(CONFIG_NETFILTER_XT_MATCH_LAYER7) || defined(CONFIG_NETFILTER_XT_MATCH_LAYER7_MODULE)
+	if(ct->layer7.app_proto &&
+           seq_printf(s, "l7proto=%s ", ct->layer7.app_proto))
+		return -ENOSPC;
+#endif
+
 	seq_printf(s, "use=%u\n", atomic_read(&ct->ct_general.use));
 
 	if (seq_has_overflowed(s))
