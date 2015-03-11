@@ -283,6 +283,15 @@ config PWM_STI
 	  To compile this driver as a module, choose M here: the module
 	  will be called pwm-sti.
 
+config PWM_SUN4I
+	tristate "Allwinner sun4i PWM support"
+	depends on ARCH_SUNXI || COMPILE_TEST
+	help
+	  Generic PWM framework driver for Allwinner sun4i and sun7i SoCs.
+
+	  To compile this driver as a module, choose M here: the module
+	  will be called pwm-sun4i.
+
 config PWM_TEGRA
 	tristate "NVIDIA Tegra PWM support"
 	depends on ARCH_TEGRA
