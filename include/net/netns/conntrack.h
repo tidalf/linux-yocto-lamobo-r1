@@ -86,6 +86,7 @@ struct netns_ct {
 	struct ctl_table_header	*helper_sysctl_header;
 #endif
 	char			*slabname;
+	int			skip_filter;
 	unsigned int		sysctl_log_invalid; /* Log invalid packets */
 	int			sysctl_events;
 	int			sysctl_acct;
